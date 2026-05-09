@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>한국어 배우기 — Korean Vocabulary by Kamal Mukhiya</title>
+<title>한국어 배우기 — Korean Vocabulary · Silicon Education</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
@@ -482,7 +482,7 @@
     width: 100%;
     max-width: 560px;
     margin: 0 auto;
-    height: clamp(210px, 55vw, 300px);
+    min-height: clamp(260px, 65vw, 340px);
     position: relative;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
@@ -509,9 +509,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
+    padding: 1rem 1.2rem;
     box-shadow: 0 8px 40px var(--shadow);
     text-align: center;
+    overflow: hidden;
   }
 
   .card-front {
@@ -537,18 +538,22 @@
 
   .card-korean {
     font-family: 'Noto Serif KR', serif;
-    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
     font-weight: 600;
     color: var(--ink);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
     line-height: 1.2;
+    white-space: nowrap;
+    word-break: keep-all;
   }
 
   .card-romanization {
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    font-size: clamp(1rem, 3vw, 1.2rem);
     color: var(--ink3);
     font-style: italic;
     margin-bottom: 0.3rem;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
   }
 
   .card-category-tag {
@@ -691,8 +696,8 @@
     border-radius: 10px;
     padding: 0.75rem 1rem;
     display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
     gap: 0.5rem;
     transition: all 0.2s;
     cursor: pointer;
@@ -701,16 +706,15 @@
   }
   @media (min-width: 580px) {
     .word-item { grid-template-columns: 90px 1fr 1fr 80px; }
-    .wi-nepali, .wi-roman { display: block !important; }
   }
 
   .word-item:hover { border-color: var(--accent); box-shadow: 0 2px 12px var(--shadow); }
   .word-item.known-word { border-left: 3px solid var(--teal); }
 
-  .wi-korean { font-family: 'Noto Serif KR', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); }
-  .wi-roman { font-size: 0.75rem; color: var(--ink3); font-style: italic; display: none; }
+  .wi-korean { font-family: 'Noto Serif KR', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .wi-roman { font-size: 0.75rem; color: var(--ink3); font-style: italic; white-space: nowrap; }
   .wi-english { font-size: 0.85rem; font-weight: 600; color: var(--ink2); }
-  .wi-nepali { font-size: 0.82rem; color: var(--ink3); display: none; }
+  .wi-nepali { font-size: 0.82rem; color: var(--ink3); }
   .wi-badge { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.7px; padding: 0.2rem 0.5rem; border-radius: 99px; font-weight: 700; text-align: center; white-space: nowrap; }
   .badge-known { background: #e0f2ed; color: var(--teal); }
   .badge-new { background: #f2e8e0; color: var(--accent2); }
@@ -747,10 +751,12 @@
 
   .quiz-question {
     font-family: 'Noto Serif KR', serif;
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
     font-weight: 600;
     color: var(--ink);
     margin-bottom: 0.4rem;
+    white-space: nowrap;
+    word-break: keep-all;
   }
 
   .quiz-question-en {
@@ -760,7 +766,7 @@
     margin-bottom: 0.4rem;
   }
 
-  .quiz-romanization { font-size: 0.9rem; color: var(--ink3); font-style: italic; margin-bottom: 1.2rem; }
+  .quiz-romanization { font-size: 1rem; color: var(--ink3); font-style: italic; margin-bottom: 1.2rem; white-space: nowrap; letter-spacing: 0.3px; }
 
   .quiz-options {
     display: grid;
@@ -1489,11 +1495,13 @@
     color: white;
     line-height: 1.2;
     word-break: keep-all;
+    white-space: nowrap;
   }
   .writing-prompt-main.korean {
     font-family: 'Noto Serif KR', serif;
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     color: #a7f3d0;
+    white-space: nowrap;
   }
   .writing-prompt-sub {
     font-size: 0.9rem;
@@ -2478,9 +2486,19 @@
   </div>
   <div class="hp-content">
     <div class="hp-badge">🇰🇷 한국어 학습 앱 · Korean Learning App</div>
+
+    <!-- Silicon Education — text branding -->
+    <div class="hp-logo-wrap" style="margin-bottom:1.6rem;animation:fadeInDown 0.65s ease 0.05s both;">
+      <div style="text-align:center;line-height:1;">
+        <div style="font-family:'Playfair Display',serif;font-size:clamp(2rem,7vw,3rem);font-weight:700;letter-spacing:2px;background:linear-gradient(135deg,#fff 0%,var(--gold) 50%,#e8704a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Silicon</div>
+        <div style="font-family:'Playfair Display',serif;font-size:clamp(0.75rem,2.5vw,1rem);font-weight:400;letter-spacing:6px;color:rgba(255,255,255,0.7);text-transform:uppercase;margin-top:4px;">Education</div>
+        <div style="width:60px;height:2px;background:linear-gradient(90deg,var(--gold),var(--accent2));margin:8px auto 0;border-radius:2px;"></div>
+      </div>
+    </div>
+
     <div class="hp-korean-title"><span class="hp-title-accent">한국어</span></div>
     <div class="hp-subtitle">Welcome to Your Korean Journey</div>
-    <div class="hp-name">Specially crafted for <strong>Kamal Mukhiya</strong> · <span style="font-family:'Noto Serif KR',serif;letter-spacing:1px;">카말 무키야</span></div>
+    <div class="hp-name">Crafted for <strong>Silicon Education</strong> &nbsp;·&nbsp; Made by <span style="color:var(--gold);">Kamal Mukhiya</span></div>
 
     <div class="hp-stats">
       <div class="hp-stat">
@@ -2541,8 +2559,14 @@
 
 <header class="header">
   <div class="header-brand">
-    <span class="header-logo" onclick="goHome()" title="Go to Home">한국어</span>
-    <span class="header-title">Korean Vocabulary</span>
+    <span onclick="goHome()" title="Go to Home" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+      <span class="header-logo">한</span>
+      <div style="display:flex;flex-direction:column;line-height:1.15;">
+        <span style="font-family:'Playfair Display',serif;font-size:0.92rem;font-weight:700;color:white;letter-spacing:0.5px;">한국어 배우기</span>
+        <span style="font-size:0.6rem;font-weight:400;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;">Korean Vocabulary</span>
+      </div>
+    </span>
+    <span class="header-title" style="font-family:'Noto Serif KR',serif;font-size:1rem;color:var(--gold);margin-left:4px;">한국어</span>
   </div>
   <div class="header-credit">
     Made by<span>Kamal Mukhiya</span>
@@ -2550,16 +2574,16 @@
 </header>
 
 <nav class="nav" id="main-nav">
-  <button class="nav-btn active" onclick="showSection('flashcard', this)">🃏 Cards</button>
-  <button class="nav-btn" onclick="showSection('quiz', this)">🎯 Quiz</button>
-  <button class="nav-btn" onclick="showSection('recall', this)">🧠 Recall</button>
-  <button class="nav-btn" onclick="showSection('writing', this)">✍️ Writing</button>
-  <button class="nav-btn" onclick="showSection('alphabet', this)">🔤 Alphabets</button>
-  <button class="nav-btn" onclick="showSection('wordlist', this)">📚 Words</button>
-  <button class="nav-btn" onclick="showSection('progress', this)">📊 Progress</button>
   <button class="nav-btn" onclick="showSection('guide', this)">🗺️ Guide</button>
+  <button class="nav-btn" onclick="showSection('wordlist', this)">📚 Words</button>
+  <button class="nav-btn" onclick="showSection('writing', this)">✍️ Writing</button>
+  <button class="nav-btn" onclick="showSection('quiz', this)">🎯 Quiz</button>
+  <button class="nav-btn active" onclick="showSection('flashcard', this)">🃏 Cards</button>
+  <button class="nav-btn" onclick="showSection('recall', this)">🧠 Recall</button>
+  <button class="nav-btn" onclick="showSection('alphabet', this)">🔤 Alphabets</button>
   <button class="nav-btn" onclick="showSection('shadow', this)">🎙️ Shadow</button>
-  <button class="nav-btn" onclick="showSection('listen', this)">👂 Listen</button>
+  <button class="nav-btn" onclick="showSection('listen', this)">👂 Listening</button>
+  <button class="nav-btn" onclick="showSection('progress', this)">📊 Progress</button>
 </nav>
 
 <main class="main">
@@ -2607,6 +2631,7 @@
         <div class="card-category-tag" id="fc-cat-tag">—</div>
         <div class="card-korean" id="fc-korean">—</div>
         <div class="card-romanization" id="fc-roman">—</div>
+        <div style="font-size:clamp(0.7rem,1.8vw,0.82rem);color:var(--ink3);margin-bottom:0.25rem;font-style:italic;" id="fc-nepali-front">—</div>
         <button class="speak-btn speak-btn-front" onclick="event.stopPropagation(); speakKorean()" id="fc-speak">🔊 Pronounce</button>
         <div class="card-hint">Tap to reveal</div>
       </div>
@@ -2615,7 +2640,7 @@
         <div class="card-english" id="fc-english">—</div>
         <div class="card-nepali" id="fc-nepali">—</div>
         <div class="card-nepali-pronunciation" id="fc-nepali-pron">—</div>
-        <button class="speak-btn" onclick="event.stopPropagation(); speakKorean()">🔊 Listen</button>
+        <button class="speak-btn" onclick="event.stopPropagation(); speakKorean()">🔊 Listening</button>
         <div class="card-example" id="fc-example">—</div>
       </div>
     </div>
@@ -4273,8 +4298,310 @@ const VOCAB = [
   ["지금 바로","ji-geum-ba-ro","Right now","अहिले नै","Right now","지금 바로 해요. (Do it right now.)","Expressions"],
   ["잠시 후","jam-si-hu","After a while","अलिकति पछि","After a while","잠시 후에 봐요. (See you after a while.)","Expressions"],
   ["별로","byeol-lo","Not really / Not much","त्यति राम्रो नहुने","Not really","별로예요. (It's not really good.)","Expressions"],
+  // RESTAURANT & DINING
+  ["식당","sik-dang","Restaurant","रेस्टुरेन्ट","Restaurant","식당에 가요. (Let's go to the restaurant.)","Restaurant"],
+  ["메뉴","me-nyu","Menu","मेनु","Menu","메뉴 주세요. (Please give me the menu.)","Restaurant"],
+  ["주문","ju-mun","Order","अर्डर","Order","주문할게요. (I will order.)","Restaurant"],
+  ["주문하다","ju-mun-ha-da","To order","अर्डर गर्ने","To order","주문하시겠어요? (Would you like to order?)","Restaurant"],
+  ["추천","chu-cheon","Recommendation","सिफारिस","Recommend","뭐가 맛있어요? (What's good? Please recommend.)","Restaurant"],
+  ["계산","gye-san","Bill / Check","बिल","Bill","계산해주세요. (Please give me the bill.)","Restaurant"],
+  ["영수증","yeong-su-jeung","Receipt","रसिद","Receipt","영수증 주세요. (Please give me the receipt.)","Restaurant"],
+  ["포장","po-jang","Takeaway / To-go","टेकवे","Takeaway","포장해주세요. (Please pack it to go.)","Restaurant"],
+  ["배달","bae-dal","Delivery","डेलिभरी","Delivery","배달 돼요? (Do you deliver?)","Restaurant"],
+  ["예약","ye-yak","Reservation","बुकिङ","Reservation","예약했어요. (I made a reservation.)","Restaurant"],
+  ["테이블","te-i-beul","Table","टेबल","Table","테이블 있어요? (Is there a table available?)","Restaurant"],
+  ["자리","ja-ri","Seat / Spot","सिट","Seat","자리 있어요? (Is there a seat?)","Restaurant"],
+  ["웨이터","we-i-teo","Waiter","वेटर","Waiter","웨이터를 불러요. (Call the waiter.)","Restaurant"],
+  ["접시","jeop-si","Plate / Dish","थाल","Plate","접시 주세요. (Please give me a plate.)","Restaurant"],
+  ["그릇","geu-reut","Bowl","कचौरा","Bowl","그릇 깨끗해요. (The bowl is clean.)","Restaurant"],
+  ["젓가락","jeot-ga-rak","Chopsticks","चपस्टिक","Chopsticks","젓가락 주세요. (Please give me chopsticks.)","Restaurant"],
+  ["숟가락","sut-ga-rak","Spoon","चम्चा","Spoon","숟가락 주세요. (Please give me a spoon.)","Restaurant"],
+  ["포크","po-keu","Fork","काँटो","Fork","포크 주세요. (Please give me a fork.)","Restaurant"],
+  ["냅킨","naep-kin","Napkin","न्याप्किन","Napkin","냅킨 주세요. (Please give me a napkin.)","Restaurant"],
+  ["물","mul","Water","पानी","Water","물 주세요. (Please give me water.)","Restaurant"],
+  ["얼음물","eol-eum-mul","Ice water","चिसो पानी","Ice water","얼음물 주세요. (Ice water please.)","Restaurant"],
+  ["소금","so-geum","Salt","नुन","Salt","소금 주세요. (Please give me salt.)","Restaurant"],
+  ["후추","hu-chu","Pepper","खुर्सानी","Pepper","후추 주세요. (Please give me pepper.)","Restaurant"],
+  ["간장","gan-jang","Soy sauce","सोया सस","Soy sauce","간장 주세요. (Soy sauce please.)","Restaurant"],
+  ["고추장","go-chu-jang","Red pepper paste","रातो मिर्च पेस्ट","Gochujang","고추장 있어요? (Do you have gochujang?)","Restaurant"],
+  ["반찬","ban-chan","Side dishes","साइड डिश","Banchan","반찬이 많아요. (There are many side dishes.)","Restaurant"],
+  ["리필","ri-pil","Refill","रिफिल","Refill","리필 돼요? (Can I get a refill?)","Restaurant"],
+  ["맵지않게","maep-ji-an-ke","Not spicy","पिरो नभइ","Not spicy","맵지 않게 해주세요. (Please make it not spicy.)","Restaurant"],
+  ["조금만","jo-geum-man","Just a little","अलिकति मात्र","Just a little","조금만 주세요. (Just a little please.)","Restaurant"],
+  ["알레르기","al-le-reu-gi","Allergy","एलर्जी","Allergy","알레르기 있어요. (I have an allergy.)","Restaurant"],
+  ["채식주의자","chae-sik-ju-ui-ja","Vegetarian","शाकाहारी","Vegetarian","저는 채식주의자예요. (I am vegetarian.)","Restaurant"],
+  ["잘먹겠습니다","jal-meok-get-sseum-ni-da","Thanks before eating","खानु अघि","Before eating","잘 먹겠습니다! (Thank you for the food!)","Restaurant"],
+  ["잘먹었습니다","jal-meo-geot-sseum-ni-da","Thanks after eating","खाएपछि धन्यवाद","After eating","잘 먹었습니다! (That was delicious!)","Restaurant"],
+  ["일인분","il-in-bun","One serving","एक जनाको","One serving","일인분 주세요. (One serving please.)","Restaurant"],
+  ["이인분","i-in-bun","Two servings","दुई जनाको","Two servings","이인분 주세요. (Two servings please.)","Restaurant"],
+  ["셀프","sel-peu","Self-service","सेल्फ सर्भिस","Self service","셀프예요. (It's self-service.)","Restaurant"],
+
+  // CAFE & DRINKS
+  ["카페","ka-pe","Cafe","क्याफे","Cafe","카페에 가요. (Let's go to a cafe.)","Cafe"],
+  ["아메리카노","a-me-ri-ka-no","Americano","अमेरिकानो","Americano","아메리카노 한 잔 주세요. (One Americano please.)","Cafe"],
+  ["카페라떼","ka-pe-la-tte","Cafe Latte","क्याफे लाटे","Cafe latte","카페라떼 주세요. (Cafe latte please.)","Cafe"],
+  ["카푸치노","ka-pu-chi-no","Cappuccino","क्यापुचिनो","Cappuccino","카푸치노 주세요. (Cappuccino please.)","Cafe"],
+  ["에스프레소","e-seu-peu-re-so","Espresso","एस्प्रेसो","Espresso","에스프레소 주세요. (Espresso please.)","Cafe"],
+  ["녹차","nok-cha","Green tea","हरियो चिया","Green tea","녹차 주세요. (Green tea please.)","Cafe"],
+  ["홍차","hong-cha","Black tea","कालो चिया","Black tea","홍차 주세요. (Black tea please.)","Cafe"],
+  ["주스","ju-seu","Juice","जुस","Juice","오렌지 주스 주세요. (Orange juice please.)","Cafe"],
+  ["스무디","seu-mu-di","Smoothie","स्मुदी","Smoothie","스무디 주세요. (Smoothie please.)","Cafe"],
+  ["탄산수","tan-san-su","Sparkling water","स्पार्कलिङ वाटर","Sparkling water","탄산수 주세요. (Sparkling water please.)","Cafe"],
+  ["아이스로","a-i-seu-ro","Iced please","आइस बनाउनुस्","Iced","아이스로 주세요. (Please make it iced.)","Cafe"],
+  ["핫으로","ha-seu-ro","Hot please","तातो बनाउनुस्","Hot","핫으로 주세요. (Please make it hot.)","Cafe"],
+  ["설탕","seol-tang","Sugar","चिनी","Sugar","설탕 넣어주세요. (Please add sugar.)","Cafe"],
+  ["시럽","si-reop","Syrup","सिरप","Syrup","시럽 빼주세요. (Please remove the syrup.)","Cafe"],
+  ["우유","u-yu","Milk","दूध","Milk","우유 추가해주세요. (Please add milk.)","Cafe"],
+  ["두유","du-yu","Soy milk","सोया दूध","Soy milk","두유로 바꿔주세요. (Please change to soy milk.)","Cafe"],
+  ["케이크","ke-i-keu","Cake","केक","Cake","케이크 있어요? (Do you have cake?)","Cafe"],
+  ["샌드위치","saen-deu-wi-chi","Sandwich","स्यान्डविच","Sandwich","샌드위치 주세요. (Sandwich please.)","Cafe"],
+  ["머핀","meo-pin","Muffin","मफिन","Muffin","머핀 하나 주세요. (One muffin please.)","Cafe"],
+  ["와이파이","wa-i-pa-i","WiFi","वाइफाइ","WiFi","와이파이 비밀번호 뭐예요? (What is the WiFi password?)","Cafe"],
+  ["콘센트","kon-sen-teu","Power outlet","पावर आउटलेट","Outlet","콘센트 있어요? (Is there a power outlet?)","Cafe"],
+  ["테이크아웃","te-i-keu-a-ut","Takeout","टेकआउट","Takeout","테이크아웃으로 주세요. (Takeout please.)","Cafe"],
+  ["머그컵","meo-geu-keop","Mug","मग","Mug","머그컵으로 주세요. (In a mug please.)","Cafe"],
+
+  // HOTEL & ACCOMMODATION
+  ["호텔","ho-tel","Hotel","होटल","Hotel","호텔에 묵어요. (I'm staying at a hotel.)","Hotel"],
+  ["체크인","che-keu-in","Check-in","चेक-इन","Check-in","체크인하고 싶어요. (I'd like to check in.)","Hotel"],
+  ["체크아웃","che-keu-a-ut","Check-out","चेक-आउट","Check-out","체크아웃은 몇 시예요? (What time is check-out?)","Hotel"],
+  ["빈방","bin-bang","Vacant room","खाली कोठा","Vacant room","빈 방 있어요? (Is there a vacant room?)","Hotel"],
+  ["싱글룸","sing-geul-lum","Single room","सिंगल कोठा","Single room","싱글룸 있어요? (Do you have a single room?)","Hotel"],
+  ["더블룸","deo-beul-lum","Double room","डबल कोठा","Double room","더블룸 주세요. (Double room please.)","Hotel"],
+  ["트윈룸","teu-win-lum","Twin room","ट्विन कोठा","Twin room","트윈룸 있어요? (Do you have a twin room?)","Hotel"],
+  ["몇박","myeot-bak","How many nights","कति रात","How many nights","몇 박 하실 거예요? (How many nights?)","Hotel"],
+  ["일박","il-bak","One night","एक रात","One night","일박에 얼마예요? (How much per night?)","Hotel"],
+  ["조식포함","jo-sik-po-ham","Breakfast included","बिहानको खाना सहित","Breakfast included","조식 포함이에요? (Is breakfast included?)","Hotel"],
+  ["룸서비스","lum-seo-bi-seu","Room service","रुम सर्भिस","Room service","룸서비스 주세요. (Room service please.)","Hotel"],
+  ["수건","su-geon","Towel","तौलिया","Towel","수건 더 주세요. (Please give me more towels.)","Hotel"],
+  ["베개","be-gae","Pillow","सिरानी","Pillow","베개 하나 더 주세요. (One more pillow please.)","Hotel"],
+  ["담요","dam-nyo","Blanket","कम्बल","Blanket","담요 주세요. (Blanket please.)","Hotel"],
+  ["에어컨","e-eo-kon","Air conditioning","एयर कन्डिसनर","AC","에어컨 작동이 안 돼요. (The AC is not working.)","Hotel"],
+  ["열쇠","yeol-soe","Key","साँचो","Key","열쇠 잃어버렸어요. (I lost my key.)","Hotel"],
+  ["카드키","ka-deu-ki","Card key","कार्ड कि","Card key","카드 키 안 돼요. (The card key doesn't work.)","Hotel"],
+  ["엘리베이터","el-li-be-i-teo","Elevator","लिफ्ट","Elevator","엘리베이터 어디 있어요? (Where is the elevator?)","Hotel"],
+  ["로비","ro-bi","Lobby","लबी","Lobby","로비에서 만나요. (Let's meet at the lobby.)","Hotel"],
+  ["주차장","ju-cha-jang","Parking lot","पार्किङ","Parking","주차장 있어요? (Is there parking?)","Hotel"],
+  ["고장났어요","go-jang-nat-sseo-yo","It's broken","बिग्रियो","Broken","고장났어요. (It's broken.)","Hotel"],
+  ["청소해주세요","cheong-so-hae-ju-se-yo","Please clean","सफा गरिदिनुस्","Please clean","방 청소해주세요. (Please clean the room.)","Hotel"],
+  ["짐맡길수있어요","jim-mat-gil-su-it-sseo-yo","Can I leave luggage?","सामान राख्न सकिन्छ?","Leave luggage","짐 맡길 수 있어요? (Can I leave my luggage?)","Hotel"],
+  ["모닝콜","mo-ning-kol","Wake-up call","बिहानको कल","Wake-up call","모닝콜 부탁드려요. (Please give me a wake-up call.)","Hotel"],
+  ["금연방","geum-yeon-bang","Non-smoking room","धुम्रपान निषेध कोठा","Non-smoking","금연 방 있어요? (Do you have a non-smoking room?)","Hotel"],
+
+  // MARKET & SHOPPING
+  ["슈퍼마켓","syu-peo-ma-ket","Supermarket","सुपरमार्केट","Supermarket","슈퍼마켓 어디 있어요? (Where is the supermarket?)","Market"],
+  ["편의점","pyeon-ui-jeom","Convenience store","सुविधा स्टोर","Convenience store","편의점 가요. (I'm going to the convenience store.)","Market"],
+  ["가격","ga-gyeok","Price","मूल्य","Price","가격이 얼마예요? (What is the price?)","Market"],
+  ["얼마예요","eol-ma-ye-yo","How much is it?","कति पर्छ?","How much","얼마예요? (How much is it?)","Market"],
+  ["할인","ha-rin","Discount","छुट","Discount","할인 돼요? (Can I get a discount?)","Market"],
+  ["세일","se-il","Sale","सेल","Sale","세일 중이에요. (It's on sale.)","Market"],
+  ["현금","hyeon-geum","Cash","नगद","Cash","현금으로 낼게요. (I'll pay in cash.)","Market"],
+  ["카드결제","ka-deu-gyeol-je","Card payment","कार्ड भुक्तान","Card payment","카드 돼요? (Do you accept card?)","Market"],
+  ["거스름돈","geo-seu-reum-don","Change (money)","बाँकी पैसा","Change","거스름돈 주세요. (Please give me change.)","Market"],
+  ["봉투","bong-tu","Bag","झोला","Bag","봉투 주세요. (Please give me a bag.)","Market"],
+  ["유통기한","yu-tong-gi-han","Expiry date","म्याद","Expiry date","유통기한이 언제예요? (When is the expiry date?)","Market"],
+  ["교환","gyo-hwan","Exchange","साटासाट","Exchange","교환할 수 있어요? (Can I exchange this?)","Market"],
+  ["환불","hwan-bul","Refund","फिर्ता","Refund","환불해주세요. (Please refund me.)","Market"],
+  ["영업시간","yeong-eop-si-gan","Business hours","व्यापार समय","Business hours","영업시간이 언제예요? (What are the business hours?)","Market"],
+  ["이거","i-geo","This one","यो वाला","This one","이거 주세요. (Give me this one.)","Market"],
+  ["저거","jeo-geo","That one (far)","त्यो वाला","That one","저거 주세요. (Give me that one.)","Market"],
+  ["하나주세요","ha-na-ju-se-yo","Give me one","एउटा दिनुस्","Give me one","하나 주세요. (Give me one.)","Market"],
+  ["두개주세요","du-gae-ju-se-yo","Give me two","दुईवटा दिनुस्","Give me two","두 개 주세요. (Give me two.)","Market"],
+  ["한킬로","han-kil-lo","One kilogram","एक किलो","One kilo","한 킬로 주세요. (One kilo please.)","Market"],
+
+  // DAILY LIFE ESSENTIALS
+  ["병원","byeong-won","Hospital","अस्पताल","Hospital","병원에 가야 해요. (I need to go to the hospital.)","Daily Life"],
+  ["약국","yak-guk","Pharmacy","औषधि पसल","Pharmacy","약국 어디예요? (Where is the pharmacy?)","Daily Life"],
+  ["두통약","du-tong-yak","Headache medicine","टाउको दुखाइको औषधि","Headache med","두통약 있어요? (Do you have headache medicine?)","Daily Life"],
+  ["소화제","so-hwa-je","Digestive medicine","पाचन औषधि","Digestive","소화제 주세요. (Digestive medicine please.)","Daily Life"],
+  ["반창고","ban-chang-go","Bandage","पट्टी","Bandage","반창고 주세요. (Bandage please.)","Daily Life"],
+  ["은행","eun-haeng","Bank","बैंक","Bank","은행 어디 있어요? (Where is the bank?)","Daily Life"],
+  ["ATM","e-i-ti-em","ATM","एटिएम","ATM","ATM 어디 있어요? (Where is the ATM?)","Daily Life"],
+  ["환전","hwan-jeon","Currency exchange","मुद्रा साट्ने","Exchange","환전 어디서 해요? (Where do I exchange currency?)","Daily Life"],
+  ["화장실","hwa-jang-sil","Toilet / Restroom","शौचालय","Toilet","화장실 어디 있어요? (Where is the toilet?)","Daily Life"],
+  ["비누","bi-nu","Soap","साबुन","Soap","비누 주세요. (Soap please.)","Daily Life"],
+  ["샴푸","syam-pu","Shampoo","सैम्पु","Shampoo","샴푸 주세요. (Shampoo please.)","Daily Life"],
+  ["휴지","hyu-ji","Tissue / Toilet paper","टिस्यु","Tissue","휴지 주세요. (Tissue please.)","Daily Life"],
+  ["마스크","ma-seu-keu","Mask","मास्क","Mask","마스크 있어요? (Do you have a mask?)","Daily Life"],
+  ["우산","u-san","Umbrella","छाता","Umbrella","우산 있어요? (Do you have an umbrella?)","Daily Life"],
+  ["충전기","chung-jeon-gi","Charger","चार्जर","Charger","충전기 있어요? (Do you have a charger?)","Daily Life"],
+  ["지도","ji-do","Map","नक्सा","Map","지도 있어요? (Do you have a map?)","Daily Life"],
+  ["버스정류장","beo-seu-jeong-nyu-jang","Bus stop","बस स्टप","Bus stop","버스 정류장 어디 있어요? (Where is the bus stop?)","Daily Life"],
+  ["택시","taek-si","Taxi","ट्याक्सी","Taxi","택시 불러주세요. (Please call a taxi.)","Daily Life"],
+  ["지하철","ji-ha-cheol","Subway / Metro","सबवे","Subway","지하철 어디서 타요? (Where do I take the subway?)","Daily Life"],
+  ["공항","gong-hang","Airport","विमानस्थल","Airport","공항 어떻게 가요? (How do I get to the airport?)","Daily Life"],
+  ["도와주세요","do-wa-ju-se-yo","Please help me","मद्दत गर्नुस्","Please help","도와주세요! (Please help me!)","Daily Life"],
+  ["긴급","gin-geup","Emergency","आपतकाल","Emergency","긴급이에요! (It's an emergency!)","Daily Life"],
+  ["길잃었어요","gil-i-reo-sseo-yo","I'm lost","हराएँ","I'm lost","길을 잃었어요. (I'm lost.)","Daily Life"],
+  ["다시말씀해주세요","da-si-mal-sseum-hae-ju-se-yo","Please say again","फेरि भन्नुस्","Say again","다시 말씀해주세요. (Please say it again.)","Daily Life"],
+  ["천천히말씀해주세요","cheon-cheon-hi-mal-sseum","Please speak slowly","बिस्तारै बोल्नुस्","Speak slowly","천천히 말씀해주세요. (Please speak slowly.)","Daily Life"],
+  ["한국어못해요","han-gu-geo-mot-hae-yo","I can't speak Korean","कोरियन बोल्न सक्दिनँ","Can't speak Korean","한국어 못 해요. (I can't speak Korean.)","Daily Life"],
+  ["경찰","gyeong-chal","Police","प्रहरी","Police","경찰 불러주세요. (Please call the police.)","Daily Life"],
+
+  // FOOD ITEMS (MARKET/RESTAURANT)
+  ["쌀","ssal","Rice (uncooked)","चामल","Rice","쌀 사요. (I buy rice.)","Food"],
+  ["밀가루","mil-ga-ru","Flour","पिठो","Flour","밀가루 주세요. (Flour please.)","Food"],
+  ["식용유","si-gyong-yu","Cooking oil","खाना पकाउने तेल","Cooking oil","식용유 주세요. (Cooking oil please.)","Food"],
+  ["버터","beo-teo","Butter","मक्खन","Butter","버터 있어요? (Do you have butter?)","Food"],
+  ["계란","gye-ran","Egg","अन्डा","Egg","계란 한 판 주세요. (One tray of eggs please.)","Food"],
+  ["닭고기","dak-go-gi","Chicken (meat)","कुखुराको मासु","Chicken","닭고기 얼마예요? (How much is chicken?)","Food"],
+  ["돼지고기","dwae-ji-go-gi","Pork","सुँगुरको मासु","Pork","돼지고기 주세요. (Pork please.)","Food"],
+  ["소고기","so-go-gi","Beef","गाईको मासु","Beef","소고기 주세요. (Beef please.)","Food"],
+  ["생선","saeng-seon","Fish","माछा","Fish","생선 신선해요? (Is the fish fresh?)","Food"],
+  ["새우","sae-u","Shrimp","झिंगा","Shrimp","새우 있어요? (Do you have shrimp?)","Food"],
+  ["오징어","o-jing-eo","Squid","स्क्विड","Squid","오징어 얼마예요? (How much is squid?)","Food"],
+  ["야채","ya-chae","Vegetables","तरकारी","Vegetables","야채 신선해요? (Are the vegetables fresh?)","Food"],
+  ["양파","yang-pa","Onion","प्याज","Onion","양파 두 개 주세요. (Two onions please.)","Food"],
+  ["마늘","ma-neul","Garlic","लसुन","Garlic","마늘 주세요. (Garlic please.)","Food"],
+  ["감자","gam-ja","Potato","आलु","Potato","감자 한 킬로 주세요. (One kilo of potatoes please.)","Food"],
+  ["당근","dang-geun","Carrot","गाजर","Carrot","당근 주세요. (Carrot please.)","Food"],
+  ["배추","bae-chu","Napa cabbage","पात गोभी","Napa cabbage","배추 있어요? (Do you have napa cabbage?)","Food"],
+  ["시금치","si-geum-chi","Spinach","पालक","Spinach","시금치 주세요. (Spinach please.)","Food"],
+  ["버섯","beo-seot","Mushroom","च्याउ","Mushroom","버섯 얼마예요? (How much are mushrooms?)","Food"],
+  ["두부","du-bu","Tofu","टोफु","Tofu","두부 있어요? (Do you have tofu?)","Food"],
+  ["사과","sa-gwa","Apple","स्याउ","Apple","사과 몇 개예요? (How many apples?)","Food"],
+  ["바나나","ba-na-na","Banana","केरा","Banana","바나나 주세요. (Banana please.)","Food"],
+  ["수박","su-bak","Watermelon","तरबुजा","Watermelon","수박 얼마예요? (How much is the watermelon?)","Food"],
+  ["딸기","ttal-gi","Strawberry","स्ट्रबेरी","Strawberry","딸기 있어요? (Do you have strawberries?)","Food"],
+  ["빵","ppang","Bread","रोटी","Bread","빵 주세요. (Bread please.)","Food"],
+  ["라면","ra-myeon","Ramen noodles","र्यामेन","Ramen","라면 있어요? (Do you have ramen?)","Food"],
+  ["김치","gim-chi","Kimchi","किम्ची","Kimchi","김치 얼마예요? (How much is kimchi?)","Food"],
+  ["된장찌개","doen-jang-jji-gae","Soybean paste stew","सोयाबिन स्टु","Doenjang stew","된장찌개 주세요. (Doenjang stew please.)","Food"],
+  ["삼겹살","sam-gyeop-sal","Grilled pork belly","पोर्क बेली","Samgyeopsal","삼겹살 이인분 주세요. (Samgyeopsal for two please.)","Food"],
+  ["비빔밥","bi-bim-bap","Mixed rice bowl","मिक्स राइस","Bibimbap","비빔밥 주세요. (Bibimbap please.)","Food"],
+  ["냉면","naeng-myeon","Cold noodles","चिसो चाउचाउ","Cold noodles","냉면 주세요. (Cold noodles please.)","Food"],
+  ["치킨","chi-kin","Fried chicken","फ्राइड चिकन","Fried chicken","치킨 주문할게요. (I'll order fried chicken.)","Food"],
+  ["떡볶이","tteok-bo-kki","Spicy rice cakes","पिरो राइस केक","Tteokbokki","떡볶이 주세요. (Tteokbokki please.)","Food"],
+  ["순두부찌개","sun-du-bu-jji-gae","Soft tofu stew","सफ्ट टोफु स्टु","Sundubu stew","순두부찌개 주세요. (Soft tofu stew please.)","Food"],
+  ["잡채","jap-chae","Glass noodle stir-fry","ग्लास नुडल","Japchae","잡채 주세요. (Japchae please.)","Food"],
+  ["파전","pa-jeon","Green onion pancake","हरियो प्याज पेनकेक","Pajeon","파전 주세요. (Pajeon please.)","Food"],
+  ["막걸리","mak-geol-li","Rice wine","राइस वाइन","Makgeolli","막걸리 한 병 주세요. (One bottle of makgeolli please.)","Food"],
+  ["소주","so-ju","Korean liquor","कोरियन रक्सी","Soju","소주 한 병 주세요. (One bottle of soju please.)","Food"],
+  ["맥주","maek-ju","Beer","बियर","Beer","맥주 주세요. (Beer please.)","Food"],
+  ["음료","eum-nyo","Beverage / Drink","पेय पदार्थ","Beverage","음료 뭐 있어요? (What drinks do you have?)","Food"],
+  ["갈비","gal-bi","Ribs","रिब्स","Ribs","갈비 주세요. (Ribs please.)","Food"],
+  ["국밥","guk-bap","Soup with rice","सुप र भात","Soup rice","국밥 주세요. (Soup with rice please.)","Food"],
+  ["김밥","gim-bap","Seaweed rice roll","सिविड राइस रोल","Gimbap","김밥 주세요. (Gimbap please.)","Food"],
+  ["순대","sun-dae","Blood sausage","ब्लड सॉसेज","Sundae","순대 있어요? (Do you have sundae?)","Food"],
+  ["보쌈","bo-ssam","Boiled pork wrap","पोर्क र्याप","Bossam","보쌈 주세요. (Bossam please.)","Food"],
+
+  // WORK & WORKPLACE
+  ["출근","chul-geun","Going to work","काम जाने","Going to work","출근해요. (I'm going to work.)","Work"],
+  ["퇴근","toe-geun","Leaving work","काम सकिने","Leaving work","퇴근해요. (I'm leaving work.)","Work"],
+  ["월급","wol-geup","Monthly salary","मासिक तलब","Salary","월급 받았어요. (I received my salary.)","Work"],
+  ["시급","si-geup","Hourly wage","प्रति घन्टा ज्याला","Hourly wage","시급이 얼마예요? (What is the hourly wage?)","Work"],
+  ["야근","ya-geun","Overtime / Night shift","ओभरटाइम","Overtime","야근해요. (I'm working overtime.)","Work"],
+  ["휴가","hyu-ga","Vacation / Day off","बिदा","Vacation","휴가 줘요. (I'm taking a day off.)","Work"],
+  ["사장님","sa-jang-nim","Boss / Owner","मालिक","Boss","사장님 계세요? (Is the boss here?)","Work"],
+  ["직원","jik-won","Employee / Staff","कर्मचारी","Employee","직원이에요. (I'm a staff member.)","Work"],
+  ["알바","al-ba","Part-time job","पार्ट-टाइम जागिर","Part-time","알바 구해요. (I'm looking for part-time work.)","Work"],
+  ["계약서","gye-yak-seo","Contract","सम्झौता पत्र","Contract","계약서 써요. (I'm signing a contract.)","Work"],
+  ["면접","myeon-jeop","Interview","अन्तर्वार्ता","Interview","면접 있어요. (I have an interview.)","Work"],
+  ["손님","son-nim","Customer / Guest","ग्राहक","Customer","손님 오셨어요. (A customer has arrived.)","Work"],
+  ["어서오세요","eo-seo-o-se-yo","Welcome! (to a store)","स्वागत छ","Welcome","어서오세요! (Welcome!)","Work"],
+  ["잠깐만요","jam-kkan-man-yo","Just a moment","एक क्षण","Just a moment","잠깐만요. (Just a moment.)","Work"],
+  ["확인하다","hwa-gin-ha-da","To confirm / check","जाँच गर्ने","To confirm","확인할게요. (I'll confirm.)","Work"],
+  ["준비됐어요","jun-bi-dwet-sseo-yo","It's ready","तयार भयो","Ready","준비됐어요. (It's ready.)","Work"],
+  ["죄송합니다","joe-song-ham-ni-da","I'm very sorry","माफ गर्नुस्","Very sorry","죄송합니다. (I'm very sorry.)","Work"],
+  ["기다려주세요","gi-da-ryeo-ju-se-yo","Please wait","पर्खनुस्","Please wait","잠깐 기다려주세요. (Please wait a moment.)","Work"],
+  ["담당자","dam-dang-ja","Person in charge","जिम्मेवार व्यक्ति","In charge","담당자 바꿔드릴게요. (I'll connect you to the person in charge.)","Work"],
+  ["영업중","yeong-eop-jung","Open for business","व्यापार खुला","Open","영업중이에요. (We are open.)","Work"],
+
+  // ADDITIONAL DAILY LIFE & WORKPLACE
+  ["냉장고","naeng-jang-go","Refrigerator","फ्रिज","Fridge","냉장고에 넣어요. (Put it in the fridge.)","Daily Life"],
+  ["전자레인지","jeon-ja-re-in-ji","Microwave","माइक्रोवेव","Microwave","전자레인지 있어요? (Is there a microwave?)","Daily Life"],
+  ["가스레인지","ga-seu-re-in-ji","Gas stove","ग्याँस चुलो","Gas stove","가스레인지 조심하세요. (Be careful with the gas stove.)","Daily Life"],
+  ["프라이팬","peu-ra-i-paen","Frying pan","फ्राइ प्यान","Frying pan","프라이팬 있어요? (Is there a frying pan?)","Daily Life"],
+  ["냄비","naem-bi","Pot","भाँडो","Pot","냄비에 끓여요. (Boil it in the pot.)","Daily Life"],
+  ["세탁기","se-tak-gi","Washing machine","वासिङ मेसिन","Washing machine","세탁기 있어요? (Is there a washing machine?)","Daily Life"],
+  ["청소기","cheong-so-gi","Vacuum cleaner","भ्याकुम क्लिनर","Vacuum","청소기로 청소해요. (I clean with a vacuum.)","Daily Life"],
+  ["쓰레기통","sseu-re-gi-tong","Trash can","फोहोर डब्बा","Trash can","쓰레기통 어디 있어요? (Where is the trash can?)","Daily Life"],
+  ["분리수거","bun-li-su-geo","Recycling","रिसाइकलिङ","Recycling","분리수거 해주세요. (Please recycle.)","Daily Life"],
+  ["인터넷","in-teo-net","Internet","इन्टरनेट","Internet","인터넷 안 돼요. (The internet is not working.)","Daily Life"],
+  ["비밀번호","bi-mil-beon-ho","Password","पासवर्ड","Password","비밀번호가 뭐예요? (What is the password?)","Daily Life"],
+  ["신분증","sin-bun-jeung","ID card","परिचय पत्र","ID card","신분증 있어요? (Do you have an ID?)","Daily Life"],
+  ["여권","yeo-gwon","Passport","राहदानी","Passport","여권 보여주세요. (Please show your passport.)","Daily Life"],
+  ["비자","bi-ja","Visa","भिसा","Visa","비자 있어요? (Do you have a visa?)","Daily Life"],
+  ["계좌","gye-jwa","Bank account","बैंक खाता","Bank account","계좌번호 알려주세요. (Please tell me the account number.)","Daily Life"],
+  ["송금","song-geum","Wire transfer","पैसा पठाउने","Transfer","송금할게요. (I will transfer money.)","Daily Life"],
+  ["보증금","bo-jeung-geum","Security deposit","धरौटी","Deposit","보증금 있어요? (Is there a security deposit?)","Daily Life"],
+  ["월세","wol-se","Monthly rent","मासिक भाडा","Monthly rent","월세가 얼마예요? (How much is the monthly rent?)","Daily Life"],
+  ["집주인","jip-ju-in","Landlord","घर मालिक","Landlord","집주인한테 연락할게요. (I'll contact the landlord.)","Daily Life"],
+  ["계약기간","gye-yak-gi-gan","Contract period","सम्झौता अवधि","Contract period","계약기간이 얼마예요? (How long is the contract period?)","Daily Life"],
+  ["관리비","gwan-li-bi","Maintenance fee","मर्मत शुल्क","Maintenance","관리비 포함이에요? (Is maintenance fee included?)","Daily Life"],
+  ["전기세","jeon-gi-se","Electricity bill","बिजुली बिल","Electric bill","전기세 얼마예요? (How much is the electricity bill?)","Daily Life"],
+  ["수도세","su-do-se","Water bill","पानीको बिल","Water bill","수도세 포함이에요? (Is the water bill included?)","Daily Life"],
+  ["이사","i-sa","Moving (house)","सर्नु","Moving","이사해요. (I'm moving.)","Daily Life"],
+  ["근처","geun-cheo","Nearby / Near","नजिकै","Nearby","근처에 있어요? (Is it nearby?)","Daily Life"],
+  ["맞은편","ma-jeun-pyeon","Opposite side","अगाडिको","Opposite","맞은편에 있어요. (It's on the opposite side.)","Daily Life"],
+  ["오른쪽","o-reun-jjok","Right side","दाया","Right side","오른쪽으로 가세요. (Go to the right.)","Daily Life"],
+  ["왼쪽","wen-jjok","Left side","बाया","Left side","왼쪽으로 가세요. (Go to the left.)","Daily Life"],
+  ["직진","jik-jin","Go straight","सिधा जाने","Straight","직진하세요. (Go straight.)","Daily Life"],
+  ["신호등","sin-ho-deung","Traffic light","ट्राफिक बत्ती","Traffic light","신호등에서 왼쪽이에요. (It's left at the traffic light.)","Daily Life"],
+  ["횡단보도","hoeng-dan-bo-do","Crosswalk","जेब्राक्रसिङ","Crosswalk","횡단보도 건너세요. (Cross at the crosswalk.)","Daily Life"],
+  ["모퉁이","mo-tung-i","Corner","कुना","Corner","모퉁이에서 오른쪽이에요. (Turn right at the corner.)","Daily Life"],
+  ["몇 분 걸려요","myeot bun geol-lyeo-yo","How many minutes does it take?","कति मिनेट लाग्छ?","How long","여기서 얼마나 걸려요? (How long from here?)","Daily Life"],
+  ["걸어서","geol-eo-seo","On foot / Walking","हिँडेर","Walking","걸어서 10분이에요. (It's 10 minutes on foot.)","Daily Life"],
+  ["멀어요","meol-eo-yo","It's far","टाढा छ","It's far","멀어요? (Is it far?)","Daily Life"],
+  ["가까워요","ga-kka-wo-yo","It's close","नजिक छ","It's close","가까워요. (It's close.)","Daily Life"],
+  ["입구","ip-gu","Entrance","प्रवेश द्वार","Entrance","입구가 어디예요? (Where is the entrance?)","Daily Life"],
+  ["출구","chul-gu","Exit","निकास","Exit","출구가 어디예요? (Where is the exit?)","Daily Life"],
+  ["계단","gye-dan","Stairs","भर्‍याङ","Stairs","계단 어디예요? (Where are the stairs?)","Daily Life"],
+  ["에스컬레이터","e-seu-keol-le-i-teo","Escalator","एस्केलेटर","Escalator","에스컬레이터 있어요? (Is there an escalator?)","Daily Life"],
+  ["몇 층","myeot cheung","Which floor?","कुन तला?","Which floor","몇 층이에요? (Which floor is it?)","Daily Life"],
+  ["일층","il-cheung","First floor","पहिलो तला","1st floor","일층에 있어요. (It's on the first floor.)","Daily Life"],
+  ["지하","ji-ha","Basement","भुइँतल","Basement","지하에 있어요. (It's in the basement.)","Daily Life"],
+  ["옥상","ok-sang","Rooftop","छत","Rooftop","옥상에 있어요. (It's on the rooftop.)","Daily Life"],
+  ["화재","hwa-jae","Fire","आगो लाग्ने","Fire","화재 신고해요. (Report the fire.)","Daily Life"],
+  ["비상구","bi-sang-gu","Emergency exit","आपतकालीन निकास","Emergency exit","비상구 어디예요? (Where is the emergency exit?)","Daily Life"],
+  ["소화기","so-hwa-gi","Fire extinguisher","आगो निभाउने","Fire ext.","소화기 있어요? (Is there a fire extinguisher?)","Daily Life"],
+  ["응급실","eung-geup-sil","Emergency room","आपतकालीन कक्ष","ER","응급실 가야 해요. (I need to go to the ER.)","Daily Life"],
+  ["앰뷸런스","aem-byul-leon-seu","Ambulance","एम्बुलेन्स","Ambulance","앰뷸런스 불러주세요. (Please call an ambulance.)","Daily Life"],
+  ["아파요","a-pa-yo","It hurts / I'm sick","दुखिरहेको छ","It hurts","아파요. (It hurts / I'm sick.)","Daily Life"],
+  ["열이 나요","yeol-i na-yo","I have a fever","ज्वरो आएको छ","Fever","열이 나요. (I have a fever.)","Daily Life"],
+  ["기침해요","gi-chim-hae-yo","I'm coughing","खोकिरहेको छ","Coughing","기침해요. (I'm coughing.)","Daily Life"],
+  ["배 아파요","bae a-pa-yo","My stomach hurts","पेट दुखेको छ","Stomach ache","배 아파요. (My stomach hurts.)","Daily Life"],
 ];
 
+// ============================================================
+// KOREAN ROMANIZATION → NEPALI DEVANAGARI CONVERTER
+// Converts e.g. "an-nyeong-ha-se-yo" → "अन·न्योङ·हा·से·यो"
+// ============================================================
+function toDevanagari(roman) {
+  if (!roman) return '';
+  return roman.toLowerCase().split('-').map(function(syllable) {
+    var R = [
+      ['nyeo','न्यो'],['nyo','न्यो'],['nya','न्या'],['nye','न्ये'],['nyu','न्यु'],
+      ['gyeo','ग्यो'],['gyo','ग्यो'],['gya','ग्या'],['gye','ग्ये'],['gyu','ग्यु'],
+      ['hyeo','ह्यो'],['hyo','ह्यो'],['hya','ह्या'],['hye','ह्ये'],['hyu','ह्यु'],
+      ['myeo','म्यो'],['myo','म्यो'],['mya','म्या'],['mye','म्ये'],['myu','म्यु'],
+      ['byeo','ब्यो'],['byo','ब्यो'],['bya','ब्या'],['bye','ब्ये'],['byu','ब्यु'],
+      ['pyeo','प्यो'],['pyo','प्यो'],['pya','प्या'],['pye','प्ये'],['pyu','प्यु'],
+      ['ryeo','र्यो'],['ryo','र्यो'],['rya','र्या'],['rye','र्ये'],['ryu','र्यु'],
+      ['lyeo','र्यो'],['lyo','र्यो'],['lya','र्या'],['lye','र्ये'],['lyu','र्यु'],
+      ['syeo','स्यो'],['syo','स्यो'],['sya','स्या'],['sye','स्ये'],['syu','स्यु'],
+      ['jyeo','ज्यो'],['jyo','ज्यो'],['jya','ज्या'],['jye','ज्ये'],['jyu','ज्यु'],
+      ['kyeo','क्यो'],['kyo','क्यो'],['kya','क्या'],['kye','क्ये'],['kyu','क्यु'],
+      ['tyeo','त्यो'],['tyo','त्यो'],['tya','त्या'],['tye','त्ये'],['tyu','त्यु'],
+      ['dyeo','द्यो'],['dyo','द्यो'],['dya','द्या'],['dye','द्ये'],['dyu','द्यु'],
+      ['wae','वे'],['wa','वा'],['wo','वो'],['we','वे'],['wi','वि'],
+      ['yae','ये'],['ya','या'],['yo','यो'],['yu','यु'],['ye','ये'],['yi','यि'],
+      ['kk','क्क'],['tt','त्त'],['pp','प्प'],['ss','स्स'],['jj','ज्ज'],
+      ['ch','च'],['ng','ङ'],['ks','क्स'],['nj','न्ज'],['nh','न्ह'],
+      ['ae','ए'],['oe','वे'],['ui','इ'],['eo','ओ'],['eu','उ'],
+      ['a','अ'],['i','इ'],['u','उ'],['e','ए'],['o','ओ'],
+      ['g','ग'],['n','न'],['d','द'],['r','र'],['l','र'],
+      ['m','म'],['b','ब'],['s','स'],['j','ज'],
+      ['k','क'],['t','त'],['p','प'],['h','ह'],
+      ['y','य'],['w','व'],
+    ];
+    var s = syllable;
+    for (var ri = 0; ri < R.length; ri++) {
+      s = s.split(R[ri][0]).join(R[ri][1]);
+    }
+    return s;
+  }).join('·');
+}
 // ============================================================
 const CATEGORIES = [...new Set(VOCAB.map(w => w[6]))];
 let knownWords = JSON.parse(localStorage.getItem('knownWords') || '[]');
@@ -4328,7 +4655,7 @@ function showSection(name, btn) {
   if (btn) btn.classList.add('active');
   else {
     const btns = document.querySelectorAll('.nav-btn');
-    const map = { flashcard: 0, quiz: 1, recall: 2, writing: 3, alphabet: 4, wordlist: 5, progress: 6, guide: 7, shadow: 8, listen: 9 };
+    const map = { guide: 0, wordlist: 1, writing: 2, quiz: 3, flashcard: 4, recall: 5, alphabet: 6, shadow: 7, listen: 8, progress: 9 };
     if (map[name] !== undefined) btns[map[name]].classList.add('active');
   }
   currentSection = name;
@@ -4546,8 +4873,12 @@ function renderFlashcard() {
   document.getElementById('fc-korean').textContent = w[0];
   document.getElementById('fc-roman').textContent = w[1];
   document.getElementById('fc-english').textContent = w[2];
-  document.getElementById('fc-nepali').textContent = w[3];
-  document.getElementById('fc-nepali-pron').textContent = '🇳🇵 ' + w[4];
+  // Nepali pronunciation = Korean romanization converted to Devanagari
+  var devPron = toDevanagari(w[1]);
+  document.getElementById('fc-nepali').textContent = '🇳🇵 ' + devPron;
+  document.getElementById('fc-nepali-pron').textContent = '';  // cleared — no redundant Nepali word
+  var frontNep = document.getElementById('fc-nepali-front');
+  if (frontNep) frontNep.textContent = '🇳🇵 ' + devPron;
   document.getElementById('fc-example').textContent = w[5];
   document.getElementById('fc-counter').textContent = (fcIndex+1) + ' / ' + fcWords.length;
   document.getElementById('fc-current').textContent = fcIndex+1;
@@ -4871,9 +5202,9 @@ function filterWords(search) {
       <div>
         <div class="wi-korean">${w[0]}</div>
         <div class="wi-roman">${w[1]}</div>
+        <div class="wi-nepali" style="color:var(--teal);font-size:0.72rem;">🇳🇵 ${toDevanagari(w[1])}</div>
       </div>
       <div class="wi-english">${w[2]}</div>
-      <div class="wi-nepali">${w[3]}<br><span style="font-size:0.72rem;color:var(--ink3)">${w[4]}</span></div>
       <div><span class="wi-badge ${knownWords.includes(w[0]) ? 'badge-known' : 'badge-new'}">${knownWords.includes(w[0]) ? '✓ Known' : 'New'}</span></div>
     `;
     div.onclick = () => {
@@ -6278,7 +6609,7 @@ function renderWritingCard() {
     label.textContent = 'TYPE IN KOREAN (한국어로 쓰세요)';
     main.textContent  = w[2];
     main.className    = 'writing-prompt-main';
-    sub.textContent   = '🇳🇵 ' + w[3];
+    sub.textContent   = '🇳🇵 ' + toDevanagari(w[1]);
     speakBtn.style.display = 'none';
     input.placeholder = '한국어로 쓰세요... (Korean keyboard needed)';
   } else { // listen
@@ -6522,7 +6853,7 @@ function renderRecallCard() {
   if (recallIndex >= recallQueue.length) { recallSessionDone(); return; }
   const { w, i } = recallQueue[recallIndex];
   document.getElementById('recall-english').textContent = w[2];
-  document.getElementById('recall-nepali-hint').textContent = w[3];
+  document.getElementById('recall-nepali-hint').textContent = '🇳🇵 ' + toDevanagari(w[1]);
   document.getElementById('recall-cat-tag').textContent = w[6];
   document.getElementById('recall-answer-box').style.display = 'none';
   document.getElementById('recall-prompt-box').style.display = 'block';
@@ -6548,7 +6879,7 @@ function recallReveal() {
   const { w } = recallQueue[recallIndex];
   document.getElementById('recall-ans-korean').textContent = w[0];
   document.getElementById('recall-ans-roman').textContent = w[1];
-  document.getElementById('recall-ans-nepali').textContent = '🇳🇵 ' + w[4];
+  document.getElementById('recall-ans-nepali').textContent = '🇳🇵 ' + toDevanagari(w[1]);
   document.getElementById('recall-prompt-box').style.display = 'none';
   document.getElementById('recall-answer-box').style.display = 'block';
 }
